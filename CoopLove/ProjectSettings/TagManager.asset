@@ -14,12 +14,12 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - Player
+  - Player_1
+  - Player_2
   - Ground
-  - 
-  - 
-  - 
-  - 
+  - Platform
+  - Ground_Player_1
+  - Ground_Player_2
   - 
   - 
   - 
