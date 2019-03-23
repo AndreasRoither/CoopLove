@@ -25,18 +25,22 @@ public class LevelGoal : MonoBehaviour
 
         if (player != null)
         {
-            if (!players.Contains(player))
-                players.Add(player);
+            // make sure player is above the goal
+            if (player.gameObject.transform.position.y > this.transform.position.y)
+            {
+                if (!players.Contains(player))
+                    players.Add(player);
 
-            if (players.Count == GameManager.instance.GetPlayerCount())
-            {
-                SetFinish();
-            }
-            else
-            {
-                if (goalRenderer != null)
+                if (players.Count == GameManager.instance.GetPlayerCount())
                 {
-                    goalRenderer.material.color = onePlayerStandingColor;
+                    SetFinish();
+                }
+                else
+                {
+                    if (goalRenderer != null)
+                    {
+                        goalRenderer.material.color = onePlayerStandingColor;
+                    }
                 }
             }
         }
@@ -44,6 +48,7 @@ public class LevelGoal : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
+        // remove player from player list
         Player player = collision.gameObject.GetComponent<Player>();
 
         if (player != null)
@@ -57,6 +62,7 @@ public class LevelGoal : MonoBehaviour
 
     public void SetFinish()
     {
+        // all players are on top of the goal
         if (goalRenderer != null)
         {
             goalRenderer.material.color = goalColor;

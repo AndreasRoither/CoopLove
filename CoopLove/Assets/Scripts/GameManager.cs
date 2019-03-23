@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance = null;              //Static instance of GameManager which allows it to be accessed by any other script.
     private int level = 1;                                  //Current level number, expressed in game as "Day 1".
     private List<Player> players = new List<Player>();
+    private List<Platform> platforms = new List<Platform>();
 
     public void Awake()
     {
@@ -22,9 +23,19 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void AddPlayer(Player player)
+    public void RegisterPlayer(Player player)
     {
         players.Add(player);
+    }
+
+    public void RegisterPlatform(Platform platform)
+    {
+        platforms.Add(platform);
+    }
+
+    public List<Platform> GetPlatforms()
+    {
+        return platforms;
     }
 
     public int GetPlayerCount()
@@ -32,13 +43,10 @@ public class GameManager : MonoBehaviour
         return players.Count;
     }
 
-    void InitGame()
-    {
-
-    }
-
     public void GoalReached()
     {
+        players.Clear();
+        platforms.Clear();
         LevelManager.instance.LevelCompleted();
     }
 
