@@ -44,7 +44,6 @@ public class GameManager : MonoBehaviour
 
     public void DeadZone()
     {
-        Debug.Log("Dead");
         LevelManager.instance.RestartLevel();
     }
 }
