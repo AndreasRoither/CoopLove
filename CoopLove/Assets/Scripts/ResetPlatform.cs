@@ -6,6 +6,7 @@ public class ResetPlatform : MonoBehaviour
 {
     public bool endlessTriggerCount = true;
     public int maxTriggerCount = 5;
+    public Color triggerColor;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -14,14 +15,18 @@ public class ResetPlatform : MonoBehaviour
         // reset all platforms if player entity found
         if (player != null)
         {
-            if (endlessTriggerCount)
+            // check if player is above platform
+            if (player.gameObject.transform.position.y > this.transform.position.y)
             {
-                ResetAll();
-            }
-            else if (maxTriggerCount > 0)
-            {
-                ResetAll();
-                maxTriggerCount--;
+                if (endlessTriggerCount)
+                {
+                    ResetAll();
+                }
+                else if (maxTriggerCount > 0)
+                {
+                    ResetAll();
+                    maxTriggerCount--;
+                }
             }
         }
     }

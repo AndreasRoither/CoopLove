@@ -47,11 +47,14 @@ public class GameManager : MonoBehaviour
     {
         players.Clear();
         platforms.Clear();
+        level += 1;
         LevelManager.instance.LevelCompleted();
     }
 
     public void DeadZone()
     {
+        players.Clear();
+        platforms.Clear();
         LevelManager.instance.RestartLevel();
     }
 }

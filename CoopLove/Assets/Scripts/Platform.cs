@@ -8,11 +8,15 @@ public class Platform : MonoBehaviour
     private Color baseColor;
     private Renderer platformRenderer;
     private int baseLayer;
+
+    private Collider2D collider2d;
+
     public Player preAssignedPlayer = null;
     public Platform linkedPlatform = null;
 
     public void Awake()
     {
+        this.collider2d = this.GetComponent<Collider2D>();
         this.platformRenderer = this.GetComponent<Renderer>();
         this.baseColor = platformRenderer.material.color;
         baseLayer = this.gameObject.layer;
@@ -57,6 +61,20 @@ public class Platform : MonoBehaviour
         if (platformRenderer != null)
             platformRenderer.material.color = player.playerColor;
         playerAssignment = player.playerId;
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (playerAssignment == -1)
+        {
+            Player player = collision.gameObject.GetComponent<Player>();
+
+            if (player != null)
+            {
+                if (collider2d != null)
+                    Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), this.collider2d);
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

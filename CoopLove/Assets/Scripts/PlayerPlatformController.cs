@@ -8,7 +8,6 @@ public class PlayerPlatformController : MonoBehaviour
     public Player player;
 
     float horizontalMove = 0f;
-    float verticalMove = 0f;
 
     public float runSpeed = 40f;
 
