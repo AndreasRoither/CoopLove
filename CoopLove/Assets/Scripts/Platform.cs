@@ -36,7 +36,8 @@ public class Platform : MonoBehaviour
 
     public void Start()
     {
-        GameManager.instance.RegisterPlatform(this);
+        if (GameManager.instance != null)
+            GameManager.instance.RegisterPlatform(this);
     }
 
     public void ResetPlatform()
