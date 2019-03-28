@@ -137,3 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 792cf16c0c7383345b085139af5e6cc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  preAssignedPlayer: {fileID: 0}
+  linkedPlatform: {fileID: 0}
+  platformParticleSystem: {fileID: 8231771627069994558, guid: 836cc3a3f9a28af47a5909cbd2c31583,
+    type: 3}

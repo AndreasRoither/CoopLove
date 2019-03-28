@@ -14,6 +14,8 @@ public class Platform : MonoBehaviour
     public Player preAssignedPlayer = null;
     public Platform linkedPlatform = null;
 
+    public ParticleSystem platformParticleSystem;
+
     public void Awake()
     {
         this.collider2d = this.GetComponent<Collider2D>();
@@ -73,7 +75,9 @@ public class Platform : MonoBehaviour
             if (player != null)
             {
                 if (collider2d != null)
+                {
                     Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), this.collider2d);
+                }    
             }
         }
     }
@@ -87,6 +91,14 @@ public class Platform : MonoBehaviour
             if (player != null)
             {
                 SetAssignment(player);
+
+                if (platformParticleSystem != null)
+                {
+                    ParticleSystem s = Instantiate(platformParticleSystem, this.gameObject.transform.position, Quaternion.identity);
+                    ParticleSystem.MainModule settings = s.main;
+                    settings.startColor = player.playerColor;
+                    s.transform.Rotate(new Vector3(-180, 0, 0));
+                }
 
                 if (linkedPlatform != null)
                     linkedPlatform.SetAssignment(player);

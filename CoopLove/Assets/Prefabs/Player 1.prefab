@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a65f666ca32c54486bc9cb626f0721, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColor: {r: 0.8018868, g: 0.15508187, b: 0.15508187, a: 0}
+  playerColor: {r: 0.9150943, g: 0.11654504, b: 0.11654504, a: 1}
   playerId: 0
 --- !u!1 &768370503327451449
 GameObject:

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -357,6 +357,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 768370502690652948, guid: d1304d68e47c1184d9aa7067c603fd16,
+        type: 3}
+      propertyPath: playerColor.r
+      value: 0.8962264
+      objectReference: {fileID: 0}
+    - target: {fileID: 768370502690652948, guid: d1304d68e47c1184d9aa7067c603fd16,
+        type: 3}
+      propertyPath: playerColor.g
+      value: 0.19023676
+      objectReference: {fileID: 0}
+    - target: {fileID: 768370502690652948, guid: d1304d68e47c1184d9aa7067c603fd16,
+        type: 3}
+      propertyPath: playerColor.b
+      value: 0.19023676
+      objectReference: {fileID: 0}
+    - target: {fileID: 768370502690652948, guid: d1304d68e47c1184d9aa7067c603fd16,
+        type: 3}
+      propertyPath: playerColor.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1304d68e47c1184d9aa7067c603fd16, type: 3}
 --- !u!4 &691073705 stripped
@@ -376,6 +396,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759383170492920789, guid: 73babc356b1fa2749a3383e70351c0df,
+        type: 3}
+      propertyPath: playerId
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8759383170492920780, guid: 73babc356b1fa2749a3383e70351c0df,
         type: 3}
@@ -431,11 +456,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8759383170492920789, guid: 73babc356b1fa2749a3383e70351c0df,
-        type: 3}
-      propertyPath: playerId
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73babc356b1fa2749a3383e70351c0df, type: 3}
@@ -1080,7 +1100,7 @@ PrefabInstance:
     - target: {fileID: 6840951541036874143, guid: 45ed1462874564045979a3b8f105b7a1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.27
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6840951541036874143, guid: 45ed1462874564045979a3b8f105b7a1,
         type: 3}
@@ -1127,7 +1147,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6840951541036874115, guid: 45ed1462874564045979a3b8f105b7a1,
+        type: 3}
+      propertyPath: platformParticleSystem
+      value: 
+      objectReference: {fileID: 8231771627069994558, guid: 836cc3a3f9a28af47a5909cbd2c31583,
+        type: 3}
+    - target: {fileID: 4736603063499992911, guid: 45ed1462874564045979a3b8f105b7a1,
+        type: 3}
+      propertyPath: m_RenderAlignment
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736603063499992911, guid: 45ed1462874564045979a3b8f105b7a1,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736603063499992911, guid: 45ed1462874564045979a3b8f105b7a1,
+        type: 3}
+      propertyPath: m_Flip.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736603063499992911, guid: 45ed1462874564045979a3b8f105b7a1,
+        type: 3}
+      propertyPath: m_Flip.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736603063499992911, guid: 45ed1462874564045979a3b8f105b7a1,
+        type: 3}
+      propertyPath: m_Flip.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4736603063499992911, guid: 45ed1462874564045979a3b8f105b7a1, type: 3}
+    - {fileID: 6479795753142995213, guid: 45ed1462874564045979a3b8f105b7a1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 45ed1462874564045979a3b8f105b7a1, type: 3}
 --- !u!1001 &7087160207234700529
 PrefabInstance:
