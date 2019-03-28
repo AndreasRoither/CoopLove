@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance = null;              //Static instance of GameManager which allows it to be accessed by any other script.
+    public static GameManager Instance = null;              //Static instance of GameManager which allows it to be accessed by any other script.
     private int level = 1;                                  //Current level number, expressed in game as "Day 1".
     private List<Player> players = new List<Player>();
     private List<Platform> platforms = new List<Platform>();
@@ -12,11 +12,11 @@ public class GameManager : MonoBehaviour
     public void Awake()
     {
         //Check if instance already exists
-        if (instance == null)
-            instance = this;
+        if (Instance == null)
+            Instance = this;
 
         //If instance already exists and it's not this:
-        else if (instance != this)
+        else if (Instance != this)
             Destroy(gameObject);
 
         //Sets this to not be destroyed when reloading scene

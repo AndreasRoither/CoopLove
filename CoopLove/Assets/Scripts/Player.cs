@@ -10,8 +10,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (GameManager.instance != null)
-            GameManager.instance.RegisterPlayer(this);
+        if (GameManager.Instance != null)
+            GameManager.Instance.RegisterPlayer(this);
     }
 
     // Update is called once per frame

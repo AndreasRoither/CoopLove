@@ -38,8 +38,8 @@ public class Platform : MonoBehaviour
 
     public void Start()
     {
-        if (GameManager.instance != null)
-            GameManager.instance.RegisterPlatform(this);
+        if (GameManager.Instance != null)
+            GameManager.Instance.RegisterPlatform(this);
     }
 
     public void ResetPlatform()
@@ -94,10 +94,14 @@ public class Platform : MonoBehaviour
 
                 if (platformParticleSystem != null)
                 {
-                    ParticleSystem s = Instantiate(platformParticleSystem, this.gameObject.transform.position, Quaternion.identity);
+                    ParticleSystem s = ObjectPooler.Instance.SpawnFromPool(
+                        "PlatformParticleSystem", this.gameObject.transform.position, Quaternion.identity)
+                        .GetComponent<ParticleSystem>();
+
                     ParticleSystem.MainModule settings = s.main;
                     settings.startColor = player.playerColor;
                     s.transform.Rotate(new Vector3(-180, 0, 0));
+                    s.Play();
                 }
 
                 if (linkedPlatform != null)

@@ -31,7 +31,7 @@ public class LevelGoal : MonoBehaviour
                 if (!players.Contains(player))
                     players.Add(player);
 
-                if (players.Count == GameManager.instance.GetPlayerCount())
+                if (players.Count == GameManager.Instance.GetPlayerCount())
                 {
                     SetFinish();
                 }
@@ -66,7 +66,7 @@ public class LevelGoal : MonoBehaviour
         if (goalRenderer != null)
         {
             goalRenderer.material.color = goalColor;
-            GameManager.instance.GoalReached();
+            GameManager.Instance.GoalReached();
         }
     }
 }
