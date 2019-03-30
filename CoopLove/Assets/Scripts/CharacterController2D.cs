@@ -3,6 +3,11 @@ using UnityEngine.Events;
 
 public class CharacterController2D : MonoBehaviour
 {
+    // Better Jumping
+    [SerializeField] private float m_fallMultiplier = 2.5f;
+    [SerializeField] private float m_lowJumpMultiplier = 2f;
+
+
     [SerializeField] private float m_JumpForce = 400f;                          // Amount of force added when the player jumps.
     [Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;          // Amount of maxSpeed applied to crouching movement. 1 = 100%
     [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;  // How much to smooth out the movement
@@ -64,7 +69,7 @@ public class CharacterController2D : MonoBehaviour
     }
 
 
-    public void Move(float move, bool crouch, bool jump)
+    public void Move(float move, bool crouch, bool jump, bool jumpButtonPressed)
     {
         // If crouching, check to see if the character can stand up
         if (!crouch)
@@ -79,8 +84,6 @@ public class CharacterController2D : MonoBehaviour
         //only control the player if grounded or airControl is turned on
         if (m_Grounded || m_AirControl)
         {
-
-            // If crouching
             if (crouch)
             {
                 if (!m_wasCrouching)
@@ -117,22 +120,37 @@ public class CharacterController2D : MonoBehaviour
             // If the input is moving the player right and the player is facing left...
             if (move > 0 && !m_FacingRight)
             {
-                // ... flip the player.
                 Flip();
             }
             // Otherwise if the input is moving the player left and the player is facing right...
             else if (move < 0 && m_FacingRight)
             {
-                // ... flip the player.
                 Flip();
             }
         }
+
         // If the player should jump...
         if (m_Grounded && jump)
         {
             // Add a vertical force to the player.
             m_Grounded = false;
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+        }
+
+        // Better Jumping
+        // faster fall
+        if (m_Rigidbody2D.velocity.y < 0)
+        {
+            // -1 to account for Unity Gravity system
+            m_Rigidbody2D.gravityScale = m_fallMultiplier;
+        }
+        else if (m_Rigidbody2D.velocity.y > 0 && !jumpButtonPressed)
+        {
+            m_Rigidbody2D.gravityScale = m_lowJumpMultiplier;
+        }
+        else
+        {
+            m_Rigidbody2D.gravityScale = 1f;
         }
     }
 

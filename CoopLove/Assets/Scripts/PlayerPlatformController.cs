@@ -13,6 +13,7 @@ public class PlayerPlatformController : MonoBehaviour
 
     public bool crouch = false;
     public bool jump = false;
+    public bool jumpButtonPressed = false;
 
     public void Start()
     {
@@ -27,6 +28,9 @@ public class PlayerPlatformController : MonoBehaviour
             if (Input.GetButtonDown("Crouch_Player1")) crouch = true;
             else if (Input.GetButtonUp("Crouch_Player1")) crouch = false;
 
+            if (Input.GetButton("Jump_Player1")) jumpButtonPressed = true;
+            else if (Input.GetButtonUp("Jump_Player1")) jumpButtonPressed = false;
+
             horizontalMove = Input.GetAxisRaw("Horizontal_Player1") * runSpeed;
         }
         else
@@ -35,6 +39,9 @@ public class PlayerPlatformController : MonoBehaviour
             if (Input.GetButtonDown("Crouch_Player2")) crouch = true;
             else if (Input.GetButtonUp("Crouch_Player2")) crouch = false;
 
+            if (Input.GetButton("Jump_Player2")) jumpButtonPressed = true;
+            else if (Input.GetButtonUp("Jump_Player2")) jumpButtonPressed = false;
+
             horizontalMove = Input.GetAxisRaw("Horizontal_Player2") * runSpeed;
         }
     }
@@ -42,7 +49,7 @@ public class PlayerPlatformController : MonoBehaviour
     private void FixedUpdate()
     {
         // Move character
-        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
+        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump, jumpButtonPressed);
         jump = false;
     }
 }

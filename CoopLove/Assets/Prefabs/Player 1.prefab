@@ -195,7 +195,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1905cbc0334275438bbd9e7aae2cd73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_JumpForce: 600
+  m_fallMultiplier: 2.3
+  m_lowJumpMultiplier: 2
+  m_JumpForce: 400
   m_CrouchSpeed: 0.36
   m_MovementSmoothing: 0.05
   m_AirControl: 1
@@ -232,6 +234,7 @@ MonoBehaviour:
   runSpeed: 30
   crouch: 0
   jump: 0
+  jumpButtonPressed: 0
 --- !u!114 &768370502690652948
 MonoBehaviour:
   m_ObjectHideFlags: 0
