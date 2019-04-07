@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c288de0c6c1852841976e4c7dd7bf61e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -139,5 +139,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basePlatformLayer: 12
   preAssignedPlayer: {fileID: 0}
-  linkedPlatform: {fileID: 0}
-  platformParticleSystem: {fileID: 0}
+  linkedPlatforms: []

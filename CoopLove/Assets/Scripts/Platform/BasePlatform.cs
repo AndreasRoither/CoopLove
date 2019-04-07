@@ -78,7 +78,7 @@ public class BasePlatform : MonoBehaviour
             {
                 if (collider2d != null)
                 {
-                    Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), this.collider2d);
+                    Physics2D.IgnoreCollision(collision.collider, this.collider2d);
                 }
             }
         }
