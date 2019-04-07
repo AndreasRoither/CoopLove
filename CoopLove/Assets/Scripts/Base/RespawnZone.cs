@@ -19,7 +19,7 @@ public class RespawnZone : MonoBehaviour
                 rigidbody2D.velocity = Vector2.ClampMagnitude(rigidbody2D.velocity, maxVelocity);
         }
 
-        Platform platform = collision.gameObject.GetComponent<Platform>();
+        BasePlatform platform = collision.gameObject.GetComponent<BasePlatform>();
 
         if (platform != null)
         {

@@ -33,7 +33,7 @@ public class ResetPlatform : MonoBehaviour
 
     private void ResetAll()
     {
-        foreach (Platform platform in GameManager.Instance.GetPlatforms())
+        foreach (BasePlatform platform in GameManager.Instance.GetPlatforms())
         {
             platform.ResetPlatform();
         }

@@ -1,20 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Platform : MonoBehaviour
+public class BasePlatform : MonoBehaviour
 {
     private int playerAssignment = -1;
     private Color baseColor;
     private Renderer platformRenderer;
     private int baseLayer;
-
     private Collider2D collider2d;
 
-    public Player preAssignedPlayer = null;
-    public Platform linkedPlatform = null;
+    public int basePlatformLayer;
 
-    public ParticleSystem platformParticleSystem;
+    public Player preAssignedPlayer = null;
+    public BasePlatform linkedPlatform = null;
 
     public void Awake()
     {
@@ -22,24 +19,28 @@ public class Platform : MonoBehaviour
         this.platformRenderer = this.GetComponent<Renderer>();
         this.baseColor = platformRenderer.material.color;
         baseLayer = this.gameObject.layer;
-
-        if (preAssignedPlayer != null)
-        {
-            playerAssignment = preAssignedPlayer.playerId;
-            if (platformRenderer != null)
-                platformRenderer.material.color = preAssignedPlayer.playerColor;
-
-            if (preAssignedPlayer.gameObject.layer == 9)
-                this.gameObject.layer += 1;
-            else
-                this.gameObject.layer += 2;
-        }
     }
 
     public void Start()
     {
         if (GameManager.Instance != null)
+        {
+            // setup layer if platform is preassigned
+            if (preAssignedPlayer != null)
+            {
+                playerAssignment = preAssignedPlayer.playerId;
+                if (platformRenderer != null)
+                    platformRenderer.material.color = preAssignedPlayer.playerColor;
+
+                // TODO: improve logic, get rid of magic numbers
+                if (preAssignedPlayer.gameObject.layer == 9)
+                    this.gameObject.layer += 1;
+                else
+                    this.gameObject.layer += 2;
+            }
+
             GameManager.Instance.RegisterPlatform(this);
+        }
     }
 
     public void ResetPlatform()
@@ -77,7 +78,7 @@ public class Platform : MonoBehaviour
                 if (collider2d != null)
                 {
                     Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), this.collider2d);
-                }    
+                }
             }
         }
     }
@@ -92,17 +93,14 @@ public class Platform : MonoBehaviour
             {
                 SetAssignment(player);
 
-                if (platformParticleSystem != null)
-                {
-                    ParticleSystem s = ObjectPooler.Instance.SpawnFromPool(
-                        "PlatformParticleSystem", this.gameObject.transform.position, Quaternion.identity)
-                        .GetComponent<ParticleSystem>();
+                ParticleSystem s = ObjectPooler.Instance.SpawnFromPool(
+                    "PlatformParticleSystem", this.gameObject.transform.position, Quaternion.identity)
+                    .GetComponent<ParticleSystem>();
 
-                    ParticleSystem.MainModule settings = s.main;
-                    settings.startColor = player.playerColor;
-                    s.transform.Rotate(new Vector3(-180, 0, 0));
-                    s.Play();
-                }
+                ParticleSystem.MainModule settings = s.main;
+                settings.startColor = player.playerColor;
+                s.transform.Rotate(new Vector3(-180, 0, 0));
+                s.Play();
 
                 if (linkedPlatform != null)
                     linkedPlatform.SetAssignment(player);

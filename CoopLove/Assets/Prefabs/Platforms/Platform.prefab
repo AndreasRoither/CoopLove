@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6840951541036874141}
   - component: {fileID: 6840951541036874142}
   - component: {fileID: 6840951541036874114}
-  - component: {fileID: 6840951541036874115}
+  - component: {fileID: 2953916883772556861}
   m_Layer: 12
   m_Name: Platform
   m_TagString: Untagged
@@ -125,7 +125,7 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
---- !u!114 &6840951541036874115
+--- !u!114 &2953916883772556861
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 792cf16c0c7383345b085139af5e6cc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basePlatformLayer: 12
   preAssignedPlayer: {fileID: 0}
   linkedPlatform: {fileID: 0}
-  platformParticleSystem: {fileID: 8231771627069994558, guid: 836cc3a3f9a28af47a5909cbd2c31583,
-    type: 3}
+  platformParticleSystem: {fileID: 0}

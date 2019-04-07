@@ -207,6 +207,8 @@ MonoBehaviour:
   m_GroundCheck: {fileID: 768370502336767525}
   m_CeilingCheck: {fileID: 768370503327451450}
   m_CrouchDisableCollider: {fileID: 0}
+  m_CeilingRadius: 0.05
+  m_GroundedRadius: 0.2
   OnLandEvent:
     m_PersistentCalls:
       m_Calls: []
