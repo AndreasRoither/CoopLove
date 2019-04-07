@@ -9,6 +9,9 @@ public class TimedPlatform : MonoBehaviour
     public float BlinkTime = 0.5f;
     public float BlinkOffTime = 0.5f;
     public float DestroyAfterTime = 2f;
+    public bool IgnoreCollisionsOnFall = false;
+    public bool FreezeZAxis = false;
+    public float GravityScale = 0.75f;
 
     private Collider2D m_Collider2d;
     private MeshRenderer m_MeshRenderer;
@@ -35,7 +38,7 @@ public class TimedPlatform : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (!m_IsAlive && this.m_Collider2d != null)
+        if (!m_IsAlive && this.m_Collider2d != null && IgnoreCollisionsOnFall)
         {
             Physics2D.IgnoreCollision(this.m_Collider2d, collision.collider);
         }
@@ -47,7 +50,11 @@ public class TimedPlatform : MonoBehaviour
         m_IsAlive = false;
 
         // make it fall
-        this.gameObject.AddComponent<Rigidbody2D>();
+        Rigidbody2D r = gameObject.AddComponent<Rigidbody2D>();
+        if (FreezeZAxis)
+            r.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+        r.gravityScale = GravityScale;
 
         Destroy(this.gameObject, DestroyAfterTime);
     }
