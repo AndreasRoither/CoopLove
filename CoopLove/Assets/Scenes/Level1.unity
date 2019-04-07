@@ -357,36 +357,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 768370502690652948, guid: d1304d68e47c1184d9aa7067c603fd16,
-        type: 3}
-      propertyPath: playerColor.r
-      value: 0.8962264
-      objectReference: {fileID: 0}
-    - target: {fileID: 768370502690652948, guid: d1304d68e47c1184d9aa7067c603fd16,
-        type: 3}
-      propertyPath: playerColor.g
-      value: 0.19023676
-      objectReference: {fileID: 0}
-    - target: {fileID: 768370502690652948, guid: d1304d68e47c1184d9aa7067c603fd16,
-        type: 3}
-      propertyPath: playerColor.b
-      value: 0.19023676
-      objectReference: {fileID: 0}
-    - target: {fileID: 768370502690652948, guid: d1304d68e47c1184d9aa7067c603fd16,
-        type: 3}
-      propertyPath: playerColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 768370502690652946, guid: d1304d68e47c1184d9aa7067c603fd16,
-        type: 3}
-      propertyPath: m_JumpForce
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 768370502690652946, guid: d1304d68e47c1184d9aa7067c603fd16,
-        type: 3}
-      propertyPath: m_fallMultiplier
-      value: 2.3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1304d68e47c1184d9aa7067c603fd16, type: 3}
 --- !u!1001 &692651486

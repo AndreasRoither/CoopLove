@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class BasePlatform : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class BasePlatform : MonoBehaviour
     public int basePlatformLayer;
 
     public Player preAssignedPlayer = null;
-    public BasePlatform linkedPlatform = null;
+    public List<BasePlatform> linkedPlatforms = new List<BasePlatform>();
 
     public void Awake()
     {
@@ -102,8 +103,8 @@ public class BasePlatform : MonoBehaviour
                 s.transform.Rotate(new Vector3(-180, 0, 0));
                 s.Play();
 
-                if (linkedPlatform != null)
-                    linkedPlatform.SetAssignment(player);
+                if (linkedPlatforms != null)
+                    linkedPlatforms.ForEach(p => p?.SetAssignment(player));
             }
         }
     }
