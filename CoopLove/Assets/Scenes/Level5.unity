@@ -287,6 +287,11 @@ PrefabInstance:
       propertyPath: preAssignedPlayer
       value: 
       objectReference: {fileID: 1278840706}
+    - target: {fileID: 2953916883772556861, guid: 45ed1462874564045979a3b8f105b7a1,
+        type: 3}
+      propertyPath: preAssignedPlayer
+      value: 
+      objectReference: {fileID: 1278840706}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45ed1462874564045979a3b8f105b7a1, type: 3}
 --- !u!1001 &265538473
@@ -1597,12 +1602,17 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1.0500001
       objectReference: {fileID: 0}
+    - target: {fileID: 6840951541036874115, guid: 45ed1462874564045979a3b8f105b7a1,
+        type: 3}
+      propertyPath: preAssignedPlayer
+      value: 
+      objectReference: {fileID: 737758202}
     - target: {fileID: 6840951541036874142, guid: 45ed1462874564045979a3b8f105b7a1,
         type: 3}
       propertyPath: m_UsedByEffector
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6840951541036874115, guid: 45ed1462874564045979a3b8f105b7a1,
+    - target: {fileID: 2953916883772556861, guid: 45ed1462874564045979a3b8f105b7a1,
         type: 3}
       propertyPath: preAssignedPlayer
       value: 
