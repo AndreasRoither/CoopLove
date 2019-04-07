@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerPlatformController : MonoBehaviour
 {
     public CharacterController2D controller;
-    public Player player;
+    private Player player;
 
     float horizontalMove = 0f;
 

@@ -5,8 +5,8 @@ public class CharacterController2D : MonoBehaviour
 {
     // Better Jumping
     [SerializeField] private float m_fallMultiplier = 2.5f;
-    [SerializeField] private float m_lowJumpMultiplier = 2f;
 
+    [SerializeField] private float m_lowJumpMultiplier = 2f;
 
     [SerializeField] private float m_JumpForce = 400f;                          // Amount of force added when the player jumps.
     [Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;          // Amount of maxSpeed applied to crouching movement. 1 = 100%
@@ -21,8 +21,15 @@ public class CharacterController2D : MonoBehaviour
     private Vector3 m_Velocity = Vector3.zero;
     private bool m_Grounded;            // Whether or not the player is grounded.
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
+    public bool UseBoxColliderCheck = true;
+
     [SerializeField] private float m_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
     [SerializeField] private float m_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
+
+    // Box
+    [SerializeField] private float m_GroundedRadiusBoxX = .2f; // Radius of the overlap circle to determine if the player can stand up
+
+    [SerializeField] private float m_GroundedRadiusBoxY = .2f; // Radius of the overlap circle to determine if grounded
 
     [Header("Events")]
     [Space]
@@ -33,12 +40,10 @@ public class CharacterController2D : MonoBehaviour
 
     public BoolEvent OnCrouchEvent;
     private bool m_wasCrouching = false;
-
-    Vector2 m_PreviousPosition;
-    Vector2 m_CurrentPosition;
-    Vector2 m_NextMovement = Vector2.zero;
-    Vector2 Velocity;
-
+    private Vector2 m_PreviousPosition;
+    private Vector2 m_CurrentPosition;
+    private Vector2 m_NextMovement = Vector2.zero;
+    private Vector2 Velocity;
 
     private void Awake()
     {
@@ -60,7 +65,10 @@ public class CharacterController2D : MonoBehaviour
         Gizmos.DrawWireSphere(m_CeilingCheck.position, m_CeilingRadius);
 
         // Draw ground check
-        Gizmos.DrawWireSphere(m_GroundCheck.position, m_GroundedRadius);
+        if (!UseBoxColliderCheck)
+            Gizmos.DrawWireSphere(m_GroundCheck.position, m_GroundedRadius);
+        else
+            Gizmos.DrawWireCube(m_GroundCheck.position, new Vector3(m_GroundedRadiusBoxX, m_GroundedRadiusBoxY, 0));
     }
 
     private void FixedUpdate()
@@ -70,7 +78,12 @@ public class CharacterController2D : MonoBehaviour
 
         // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
         // This can be done using layers instead but Sample Assets will not overwrite your project settings.
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, m_GroundedRadius, m_WhatIsGround);
+        Collider2D[] colliders;
+        if (UseBoxColliderCheck)
+            colliders = Physics2D.OverlapBoxAll(m_GroundCheck.position, new Vector2(m_GroundedRadiusBoxX, m_GroundedRadiusBoxY), m_WhatIsGround);
+        else
+            colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, m_GroundedRadius, m_WhatIsGround);
+
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject != gameObject)
@@ -166,7 +179,6 @@ public class CharacterController2D : MonoBehaviour
             m_Rigidbody2D.gravityScale = 1f;
         }
     }
-
 
     private void Flip()
     {
