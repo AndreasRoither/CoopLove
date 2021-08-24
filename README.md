@@ -1,4 +1,11 @@
-# CoopLove
+<h1 align="center">
+  <!--<a name="logo" href=""><img src="" alt="Logo" width="200"></a>-->
+  <br>
+  CoopLove
+
+  ![Contributions welcome](https://img.shields.io/badge/contributions-welcome-green.svg)
+  [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+</h1>
 
 CoopLove revolves around a simple concept. Two players have to reach the goal while they are coloring platforms. Once a platform has the color of a player, the other player cannot use that platform anymore. Several additions like reset buttons and timed platforms paired together with great level design can make this game quite fun :)
 
