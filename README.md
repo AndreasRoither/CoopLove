@@ -1,5 +1,5 @@
 <h1 align="center">
-  <!--<a name="logo" href=""><img src="" alt="Logo" width="200"></a>-->
+  <img src="./img/Blob.png" alt="cute jelly" width="80" height="80">
   <br>
   CoopLove
 
