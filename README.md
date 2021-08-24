@@ -3,7 +3,6 @@
   <br>
   CoopLove
 
-  ![Contributions welcome](https://img.shields.io/badge/contributions-welcome-green.svg)
   [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 </h1>
 
